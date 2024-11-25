@@ -1,6 +1,6 @@
 # Corvus.Testing.ReqnRoll
 
-![Build Status](https://github.com/endjin/Corvus.Testing.ReqnRoll/actions/workflows/build.yml/badge.svg)
+![Build Status](https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/actions/workflows/build.yml/badge.svg)
 [![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Testing.ReqnRoll/main/LICENSE)
 [![IMM](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)
 
