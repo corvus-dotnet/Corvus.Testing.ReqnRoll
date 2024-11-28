@@ -12,33 +12,6 @@
           "Microsoft.SourceLink.GitHub": "1.1.1"
         }
       },
-      "Microsoft.NET.Test.Sdk": {
-        "type": "Direct",
-        "requested": "[17.12.0, )",
-        "resolved": "17.12.0",
-        "contentHash": "kt/PKBZ91rFCWxVIJZSgVLk+YR+4KxTuHf799ho8WNiK5ZQpJNAEZCAWX86vcKrs+DiYjiibpYKdGZP6+/N17w==",
-        "dependencies": {
-          "Microsoft.CodeCoverage": "17.12.0",
-          "Microsoft.TestPlatform.TestHost": "17.12.0"
-        }
-      },
-      "NUnit3TestAdapter": {
-        "type": "Direct",
-        "requested": "[4.6.0, )",
-        "resolved": "4.6.0",
-        "contentHash": "R7e1+a4vuV/YS+ItfL7f//rG+JBvVeVLX4mHzFEZo4W1qEKl8Zz27AqvQSAqo+BtIzUCo4aAJMYa56VXS4hudw=="
-      },
-      "Reqnroll.NUnit": {
-        "type": "Direct",
-        "requested": "[2.2.1, )",
-        "resolved": "2.2.1",
-        "contentHash": "xNEj6ZNKyglOV0nk11082HJMVSSgTScpRGBEyC38o4CaRgg6SwHXf43i2wUfy423mFsHQ449+QRiw8UlHYTN2g==",
-        "dependencies": {
-          "NUnit": "3.13.1",
-          "Reqnroll": "[2.2.1]",
-          "Reqnroll.Tools.MsBuild.Generation": "[2.2.1]"
-        }
-      },
       "Roslynator.Analyzers": {
         "type": "Direct",
         "requested": "[4.12.9, )",
@@ -118,6 +91,15 @@
         "resolved": "8.0.0",
         "contentHash": "bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g=="
       },
+      "Microsoft.NET.Test.Sdk": {
+        "type": "Transitive",
+        "resolved": "17.12.0",
+        "contentHash": "kt/PKBZ91rFCWxVIJZSgVLk+YR+4KxTuHf799ho8WNiK5ZQpJNAEZCAWX86vcKrs+DiYjiibpYKdGZP6+/N17w==",
+        "dependencies": {
+          "Microsoft.CodeCoverage": "17.12.0",
+          "Microsoft.TestPlatform.TestHost": "17.12.0"
+        }
+      },
       "Microsoft.NETCore.Platforms": {
         "type": "Transitive",
         "resolved": "1.1.0",
@@ -180,6 +162,11 @@
           "NETStandard.Library": "2.0.0"
         }
       },
+      "NUnit3TestAdapter": {
+        "type": "Transitive",
+        "resolved": "4.6.0",
+        "contentHash": "R7e1+a4vuV/YS+ItfL7f//rG+JBvVeVLX4mHzFEZo4W1qEKl8Zz27AqvQSAqo+BtIzUCo4aAJMYa56VXS4hudw=="
+      },
       "Reqnroll": {
         "type": "Transitive",
         "resolved": "2.2.1",
@@ -190,6 +177,16 @@
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "SpecFlow.Internal.Json": "1.0.8",
           "System.Runtime.Loader": "4.3.0"
+        }
+      },
+      "Reqnroll.NUnit": {
+        "type": "Transitive",
+        "resolved": "2.2.1",
+        "contentHash": "xNEj6ZNKyglOV0nk11082HJMVSSgTScpRGBEyC38o4CaRgg6SwHXf43i2wUfy423mFsHQ449+QRiw8UlHYTN2g==",
+        "dependencies": {
+          "NUnit": "3.13.1",
+          "Reqnroll": "[2.2.1]",
+          "Reqnroll.Tools.MsBuild.Generation": "[2.2.1]"
         }
       },
       "Reqnroll.Tools.MsBuild.Generation": {
