@@ -36,6 +36,8 @@
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="Reqnroll.NUnit" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup>

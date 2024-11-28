@@ -6,7 +6,6 @@ namespace Corvus.Testing.ReqnRoll
 {
     using System;
     using Microsoft.Extensions.DependencyInjection;
-    using NUnit.Framework;
     using Reqnroll;
 
     /// <summary>
@@ -144,7 +143,7 @@ namespace Corvus.Testing.ReqnRoll
         [BeforeScenario("@setupContainer")]
         public static void WarnOfDeprecatedTag()
         {
-            Assert.Warn("The @setupContainer is deprecated. Use @perFeatureContainer instead, or @perScenarioContainer if per-scenario container setup and teardown better suits your requirements.");
+            throw new InvalidOperationException("The @setupContainer is deprecated. Use @perFeatureContainer instead, or @perScenarioContainer if per-scenario container setup and teardown better suits your requirements.");
         }
 
         /// <summary>
@@ -155,8 +154,7 @@ namespace Corvus.Testing.ReqnRoll
         [AfterFeature("@perFeatureContainer", "@setupContainer", Order = 1_000_000)]
         public static void TeardownContainer(FeatureContext featureContext)
         {
-            featureContext.RunAndStoreExceptions(
-                () => DisposeServiceProvider(featureContext));
+            featureContext.RunAndStoreExceptions(() => DisposeServiceProvider(featureContext));
         }
 
         /// <summary>
@@ -167,8 +165,7 @@ namespace Corvus.Testing.ReqnRoll
         [AfterScenario("@perScenarioContainer", "@setupContainer", Order = 1_000_000)]
         public static void TeardownContainer(ScenarioContext scenarioContext)
         {
-            scenarioContext.RunAndStoreExceptions(
-                () => DisposeServiceProvider(scenarioContext));
+            scenarioContext.RunAndStoreExceptions(() => DisposeServiceProvider(scenarioContext));
         }
 
         private static void ConfigureServices(
@@ -228,8 +225,7 @@ namespace Corvus.Testing.ReqnRoll
         {
             if (!featureContext.TryGetValue(ContainerBindingPhaseKey, out bool serviceBuildInProgress))
             {
-                throw new InvalidOperationException(
-                    $"This method requires {typeof(ContainerBindings).FullName} to be registered with ReqnRoll and either the @perScenarioContainer or the @perFeatureContainer tag to be specified");
+                throw new InvalidOperationException($"This method requires {typeof(ContainerBindings).FullName} to be registered with ReqnRoll and either the @perScenarioContainer or the @perFeatureContainer tag to be specified");
             }
 
             return serviceBuildInProgress;

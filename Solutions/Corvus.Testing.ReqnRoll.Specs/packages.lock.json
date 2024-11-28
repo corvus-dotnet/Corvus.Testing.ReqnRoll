@@ -12,31 +12,19 @@
           "Microsoft.SourceLink.GitHub": "1.1.1"
         }
       },
-      "Microsoft.NET.Test.Sdk": {
+      "Roslynator.Analyzers": {
         "type": "Direct",
-        "requested": "[17.12.0, )",
-        "resolved": "17.12.0",
-        "contentHash": "kt/PKBZ91rFCWxVIJZSgVLk+YR+4KxTuHf799ho8WNiK5ZQpJNAEZCAWX86vcKrs+DiYjiibpYKdGZP6+/N17w==",
-        "dependencies": {
-          "Microsoft.CodeCoverage": "17.12.0",
-          "Microsoft.TestPlatform.TestHost": "17.12.0"
-        }
+        "requested": "[4.12.9, )",
+        "resolved": "4.12.9",
+        "contentHash": "X6lDpN/D5wuinq37KIx+l3GSUe9No+8bCjGBTI5sEEtxapLztkHg6gzNVhMXpXw8P+/5gFYxTXJ5Pf8O4iNz/w=="
       },
-      "NUnit3TestAdapter": {
+      "StyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[4.6.0, )",
-        "resolved": "4.6.0",
-        "contentHash": "R7e1+a4vuV/YS+ItfL7f//rG+JBvVeVLX4mHzFEZo4W1qEKl8Zz27AqvQSAqo+BtIzUCo4aAJMYa56VXS4hudw=="
-      },
-      "Reqnroll.NUnit": {
-        "type": "Direct",
-        "requested": "[2.2.1, )",
-        "resolved": "2.2.1",
-        "contentHash": "xNEj6ZNKyglOV0nk11082HJMVSSgTScpRGBEyC38o4CaRgg6SwHXf43i2wUfy423mFsHQ449+QRiw8UlHYTN2g==",
+        "requested": "[1.2.0-beta.556, )",
+        "resolved": "1.2.0-beta.556",
+        "contentHash": "llRPgmA1fhC0I0QyFLEcjvtM2239QzKr/tcnbsjArLMJxJlu0AA5G7Fft0OI30pHF3MW63Gf4aSSsjc5m82J1Q==",
         "dependencies": {
-          "NUnit": "3.13.1",
-          "Reqnroll": "[2.2.1]",
-          "Reqnroll.Tools.MsBuild.Generation": "[2.2.1]"
+          "StyleCop.Analyzers.Unstable": "1.2.0.556"
         }
       },
       "coverlet.msbuild": {
@@ -103,6 +91,15 @@
         "resolved": "8.0.0",
         "contentHash": "bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g=="
       },
+      "Microsoft.NET.Test.Sdk": {
+        "type": "Transitive",
+        "resolved": "17.12.0",
+        "contentHash": "kt/PKBZ91rFCWxVIJZSgVLk+YR+4KxTuHf799ho8WNiK5ZQpJNAEZCAWX86vcKrs+DiYjiibpYKdGZP6+/N17w==",
+        "dependencies": {
+          "Microsoft.CodeCoverage": "17.12.0",
+          "Microsoft.TestPlatform.TestHost": "17.12.0"
+        }
+      },
       "Microsoft.NETCore.Platforms": {
         "type": "Transitive",
         "resolved": "1.1.0",
@@ -144,6 +141,14 @@
           "Newtonsoft.Json": "13.0.1"
         }
       },
+      "NETStandard.Library": {
+        "type": "Transitive",
+        "resolved": "2.0.0",
+        "contentHash": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
       "Newtonsoft.Json": {
         "type": "Transitive",
         "resolved": "13.0.1",
@@ -151,8 +156,16 @@
       },
       "NUnit": {
         "type": "Transitive",
-        "resolved": "4.2.2",
-        "contentHash": "mon0OPko28yZ/foVXrhiUvq1LReaGsBdziumyyYGxV/pOE4q92fuYeN+AF+gEU5pCjzykcdBt5l7xobTaiBjsg=="
+        "resolved": "3.13.1",
+        "contentHash": "vWBvrSelmTYwqHWvO3dA63z7cOpaFR/3nJ9MMVLBkWeaWa7oiglPPm5g1h96B4i2XXqjFexxhR5MyMjmIJYPfg==",
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        }
+      },
+      "NUnit3TestAdapter": {
+        "type": "Transitive",
+        "resolved": "4.6.0",
+        "contentHash": "R7e1+a4vuV/YS+ItfL7f//rG+JBvVeVLX4mHzFEZo4W1qEKl8Zz27AqvQSAqo+BtIzUCo4aAJMYa56VXS4hudw=="
       },
       "Reqnroll": {
         "type": "Transitive",
@@ -164,6 +177,16 @@
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "SpecFlow.Internal.Json": "1.0.8",
           "System.Runtime.Loader": "4.3.0"
+        }
+      },
+      "Reqnroll.NUnit": {
+        "type": "Transitive",
+        "resolved": "2.2.1",
+        "contentHash": "xNEj6ZNKyglOV0nk11082HJMVSSgTScpRGBEyC38o4CaRgg6SwHXf43i2wUfy423mFsHQ449+QRiw8UlHYTN2g==",
+        "dependencies": {
+          "NUnit": "3.13.1",
+          "Reqnroll": "[2.2.1]",
+          "Reqnroll.Tools.MsBuild.Generation": "[2.2.1]"
         }
       },
       "Reqnroll.Tools.MsBuild.Generation": {
@@ -178,6 +201,11 @@
         "type": "Transitive",
         "resolved": "1.0.8",
         "contentHash": "lVCC/Rie7N5rFoc7YxPS0nneLfsWSTIMMlkndwxhaD8MxBp3Bsv1HeiVjVwXCjWaQeoqZcvIy52fF5Xit00ZLw=="
+      },
+      "StyleCop.Analyzers.Unstable": {
+        "type": "Transitive",
+        "resolved": "1.2.0.556",
+        "contentHash": "zvn9Mqs/ox/83cpYPignI8hJEM2A93s2HkHs8HYMOAQW0PkampyoErAiIyKxgTLqbbad29HX/shv/6LGSjPJNQ=="
       },
       "System.IO": {
         "type": "Transitive",
@@ -263,7 +291,6 @@
           "Microsoft.Extensions.Configuration.Abstractions": "[8.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[8.0.0, )",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[8.0.1, )",
-          "NUnit": "[4.2.2, )",
           "Reqnroll": "[2.2.1, )"
         }
       },
@@ -272,6 +299,8 @@
         "dependencies": {
           "Corvus.Testing.ReqnRoll": "[1.0.0, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
+          "NUnit3TestAdapter": "[4.6.0, )",
+          "Reqnroll.NUnit": "[2.2.1, )",
           "coverlet.msbuild": "[6.0.2, )"
         }
       }
