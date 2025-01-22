@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="6.0.3">
+    <PackageReference Include="coverlet.msbuild" Version="6.0.4">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
