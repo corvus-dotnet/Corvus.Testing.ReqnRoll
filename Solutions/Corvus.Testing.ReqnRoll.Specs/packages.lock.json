@@ -4,18 +4,18 @@
     "net8.0": {
       "Endjin.RecommendedPractices.GitHub": {
         "type": "Direct",
-        "requested": "[2.1.15, )",
-        "resolved": "2.1.15",
-        "contentHash": "9aF/aMeS2+oUb15XRiVp5clB9DuXtYx+Ld5usvwegjickNEa5taX3tCMjkevgAtipIIgXA2X33lzjQu+nRBS4A==",
+        "requested": "[2.1.16, )",
+        "resolved": "2.1.16",
+        "contentHash": "Cf9seJZ8AnE4zaOBfSYSQIwX6eMTWe+kV4sZi0yr58PLKLxnQi7p7kW3kBWFXmUN2gruFA0p5wKXyPJC9JWfXg==",
         "dependencies": {
-          "Endjin.RecommendedPractices": "2.1.15",
+          "Endjin.RecommendedPractices": "2.1.16",
           "Microsoft.SourceLink.GitHub": "1.1.1"
         }
       },
       "coverlet.msbuild": {
         "type": "Transitive",
-        "resolved": "6.0.2",
-        "contentHash": "8b4jBNH7mcQy1otyQErjjIUuGD74XxKZ1wvDufbY7jhWwckl7wIa+icjwdPYeI0aYMS4Tp63LIZvyMFjWwOMDw=="
+        "resolved": "6.0.4",
+        "contentHash": "Qa7Hg+wrOMDKpXVn2dw4Wlun490bIWsFW0fdNJQFJLZnbU27MCP0HJ2mPgS+3EQBQUb0zKlkwiQzP+j38Hc3Iw=="
       },
       "Cucumber.CucumberExpressions": {
         "type": "Transitive",
@@ -24,8 +24,8 @@
       },
       "Endjin.RecommendedPractices": {
         "type": "Transitive",
-        "resolved": "2.1.15",
-        "contentHash": "PHl/jXZTYfsPa/Ef27aEbbofvhe3hGHtY2Tbp/YlxTdQE2Z+XLoWvoilSWpzb96tWWCuHqCwwjD2sv5dktxztw==",
+        "resolved": "2.1.16",
+        "contentHash": "WMGBt7Kcy+SabsCgKmTq3KpuwQAEuM7rZ4fzstxA2bRLXpeEU0LLN6A0lTuLKwgkcwQn/6Dh6dehqsgqCo1FjA==",
         "dependencies": {
           "Microsoft.Build.Tasks.Git": "1.1.1"
         }
@@ -281,7 +281,7 @@
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
           "NUnit3TestAdapter": "[4.6.0, )",
           "Reqnroll.NUnit": "[2.2.1, )",
-          "coverlet.msbuild": "[6.0.2, )"
+          "coverlet.msbuild": "[6.0.4, )"
         }
       }
     }
