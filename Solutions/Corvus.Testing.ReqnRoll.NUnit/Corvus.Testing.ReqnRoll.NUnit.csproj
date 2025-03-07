@@ -40,7 +40,7 @@
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Reqnroll.NUnit" Version="2.2.1">
+    <PackageReference Include="Reqnroll.NUnit" Version="2.4.0">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
