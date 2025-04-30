@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -40,7 +40,7 @@
         <!-- ensure the 'build' assets are not private -->
         <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Reqnroll.MSTest" Version="2.2.1" />
+    <PackageReference Include="Reqnroll.MSTest" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
