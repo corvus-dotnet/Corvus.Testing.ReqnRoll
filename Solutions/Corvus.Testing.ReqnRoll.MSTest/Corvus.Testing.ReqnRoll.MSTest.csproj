@@ -32,15 +32,17 @@
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="MSTest" Version="3.7.2" >
+    <PackageReference Include="MSTest" Version="3.9.1">
         <!-- ensure the 'build' assets are not private -->
         <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Reqnroll.MSTest" Version="2.2.1" />
+    <PackageReference Include="Reqnroll.MSTest" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
