@@ -39,6 +39,7 @@ $NugetPublishSource = property ZF_NUGET_PUBLISH_SOURCE "$here/_local-nuget-feed"
 $IncludeAssembliesInCodeCoverage = "Corvus.Testing.ReqnRoll*"
 $ExcludeAssembliesInCodeCoverage = ""
 
+
 # Customise the build process
 task . FullBuild
 
