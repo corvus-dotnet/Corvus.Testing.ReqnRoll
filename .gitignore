@@ -401,3 +401,4 @@ FodyWeavers.xsd
 _codeCoverage/
 _packages/
 .zf/extensions/
+*TestResults.xml

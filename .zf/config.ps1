@@ -38,7 +38,10 @@ $NuSpecFilesToPackage = @()
 $NugetPublishSource = property ZF_NUGET_PUBLISH_SOURCE "$here/_local-nuget-feed"
 $IncludeAssembliesInCodeCoverage = "Corvus.Testing.ReqnRoll*"
 $ExcludeAssembliesInCodeCoverage = ""
-
+$DotNetTestLoggers = @(
+    "GitHubActions"
+    "nunit;LogFilePath=$here/dotnet-TestResults.xml"
+)
 
 # Customise the build process
 task . FullBuild
