@@ -15,6 +15,7 @@
         -->
         <NoWarn>RCS1029;SA0001;SA1204;SA1600;SA1602;CS1591</NoWarn>
         <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
     </PropertyGroup>
 
     <PropertyGroup>
