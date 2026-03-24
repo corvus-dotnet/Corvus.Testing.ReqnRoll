@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Copyright>Copyright (c) Endjin Limited 2024. All rights reserved.</Copyright>
+    <TargetFramework>net10.0</TargetFramework>
+    <Copyright>Copyright (c) Endjin Limited 2026. All rights reserved.</Copyright>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -28,21 +28,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="6.0.4">
+    <PackageReference Include="coverlet.msbuild" Version="8.0.1">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="MSTest" Version="3.9.1">
+    <PackageReference Include="MSTest" Version="4.1.0">
         <!-- ensure the 'build' assets are not private -->
         <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Reqnroll.MSTest" Version="2.4.1" />
+    <PackageReference Include="Reqnroll.MSTest" Version="3.3.4" />
   </ItemGroup>
 
   <ItemGroup>

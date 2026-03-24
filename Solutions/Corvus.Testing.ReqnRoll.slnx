@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/DevOps/">
+    <File Path="../build.ps1" />
+    <File Path="../GitVersion.yml" />
+    <File Path="../imm.yaml" />
+    <File Path=".editorconfig" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="../GitVersion.yml" />
+    <File Path="../LICENSE" />
+    <File Path="../README.md" />
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="Corvus.Testing.ReqnRoll.MSTest/Corvus.Testing.ReqnRoll.MSTest.csproj" />
+  <Project Path="Corvus.Testing.ReqnRoll.NUnit/Corvus.Testing.ReqnRoll.NUnit.csproj" />
+  <Project Path="Corvus.Testing.ReqnRoll.Specs/Corvus.Testing.ReqnRoll.Specs.csproj" />
+  <Project Path="Corvus.Testing.ReqnRoll/Corvus.Testing.ReqnRoll.csproj" />
+</Solution>

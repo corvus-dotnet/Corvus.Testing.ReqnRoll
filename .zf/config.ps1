@@ -32,7 +32,7 @@ $SkipAnalysis = $false
 $SkipPackage = $false
 
 
-$SolutionToBuild = (Resolve-Path (Join-Path $here "Solutions/Corvus.Testing.ReqnRoll.sln")).Path
+$SolutionToBuild = (Resolve-Path (Join-Path $here "Solutions/Corvus.Testing.ReqnRoll.slnx")).Path
 $ProjectsToPublish = @()
 $NuSpecFilesToPackage = @()
 $NugetPublishSource = property ZF_NUGET_PUBLISH_SOURCE "$here/_local-nuget-feed"
