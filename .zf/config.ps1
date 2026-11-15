@@ -32,11 +32,11 @@ $SkipAnalysis = $false
 $SkipPackage = $false
 
 
-$SolutionToBuild = (Resolve-Path (Join-Path $here "Solutions/Corvus.Testing.ReqnRoll.slnx")).Path
+$SolutionToBuild = (Resolve-Path (Join-Path $here "Solutions/Corvus.Testing.Reqnroll.slnx")).Path
 $ProjectsToPublish = @()
 $NuSpecFilesToPackage = @()
 $NugetPublishSource = property ZF_NUGET_PUBLISH_SOURCE "$here/_local-nuget-feed"
-$IncludeAssembliesInCodeCoverage = "Corvus.Testing.ReqnRoll*"
+$IncludeAssembliesInCodeCoverage = "Corvus.Testing.Reqnroll*"
 $ExcludeAssembliesInCodeCoverage = ""
 
 

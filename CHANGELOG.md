@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Breaking:** All packages now target .NET 10.0 instead of .NET 8.0.
 - **Breaking:** Upgraded Reqnroll from 2.4.1 to 3.3.4. Projects that use these packages must move to Reqnroll 3.
+- **Breaking:** Corrected the casing of "Reqnroll" in namespaces, assembly names and package IDs, for example `Corvus.Testing.ReqnRoll` is now `Corvus.Testing.Reqnroll`. Update your `using` directives and any `stepAssemblies` entries in `reqnroll.json`. Code inside a namespace under `Corvus.Testing` must refer to the Reqnroll library as `global::Reqnroll`, because `Reqnroll` alone now resolves to `Corvus.Testing.Reqnroll`.
 - Updated Microsoft.Extensions.* to 10.0.15, Microsoft.NET.Test.Sdk to 18.12.0, MSTest to 4.5.3, NUnit3TestAdapter to 6.3.1 and coverlet.msbuild to 10.1.0.
 - Package versions are managed centrally in `Solutions/Directory.Packages.props` (NuGet Central Package Management).
 - The StyleCop and Roslynator analyzers now run on every build of the library and specs.
@@ -37,19 +38,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `Corvus.Testing.ReqnRoll.MSTest` metapackage, for projects that use Reqnroll with MSTest.
+- `Corvus.Testing.Reqnroll.MSTest` metapackage, for projects that use Reqnroll with MSTest.
 
 ## [4.0.2] - 2024-11-28
 
 ### Fixed
 
-- Reqnroll and NUnit3TestAdapter assemblies are now available to projects that reference the `Corvus.Testing.ReqnRoll.NUnit` metapackage.
+- Reqnroll and NUnit3TestAdapter assemblies are now available to projects that reference the `Corvus.Testing.Reqnroll.NUnit` metapackage.
 
 ## [4.0.1] - 2024-11-28
 
 ### Changed
 
-- `Corvus.Testing.ReqnRoll.NUnit` now references Reqnroll.NUnit and NUnit3TestAdapter, instead of NUnit directly.
+- `Corvus.Testing.Reqnroll.NUnit` now references Reqnroll.NUnit and NUnit3TestAdapter, instead of NUnit directly.
 
 ### Removed
 
@@ -59,7 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- First release of `Corvus.Testing.ReqnRoll` and the `Corvus.Testing.ReqnRoll.NUnit` metapackage, built on Reqnroll and targeting .NET 8.0.
+- First release of `Corvus.Testing.Reqnroll` and the `Corvus.Testing.Reqnroll.NUnit` metapackage, built on Reqnroll and targeting .NET 8.0.
 
 [Unreleased]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/5.0.0...HEAD
 [5.0.0]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.5...5.0.0

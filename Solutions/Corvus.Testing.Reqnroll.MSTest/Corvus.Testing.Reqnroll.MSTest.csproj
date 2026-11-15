@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Copyright>Copyright (c) Endjin Limited 2026. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsTestProject>false</IsTestProject>
+    <TestProject>false</TestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- This project takes depedency on MSTest that adds the TestContainer capability importing NUnit.props, but this is not a test project -->
+    <ProjectCapability Remove="TestContainer" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Metapackage with no real code: opt out of the analyzers referenced centrally in Directory.Packages.props. -->
+    <GlobalPackageReference Remove="@(GlobalPackageReference)" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageDescription>A metapackage that encapsulates the required dependencies when using Corvus.Testing.Reqnroll and Endjin's standard practises.  Also simplifies the dependency management process when using tools like Dependabot.</PackageDescription>
+    <PackageTags>metapackage</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <RootNamespace>MetaPackage.Reqnroll.MSTest</RootNamespace>
+    <IsPackable>true</IsPackable>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>false</IncludeContentInPack>
+    <!-- Suppress the NuGet warning we're always going to get - ref: https://github.com/NuGet/Home/issues/8583 -->
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild">
+      <!-- ensure the 'build' assets are not private -->
+      <PrivateAssets>contentfiles; analyzers</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk">
+      <!-- ensure the 'build' assets are not private -->
+      <PrivateAssets>contentfiles; analyzers</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MSTest">
+        <!-- ensure the 'build' assets are not private -->
+        <PrivateAssets>contentfiles; analyzers</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Reqnroll.MSTest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Corvus.Testing.Reqnroll\Corvus.Testing.Reqnroll.csproj" />
+  </ItemGroup>
+
+</Project>
