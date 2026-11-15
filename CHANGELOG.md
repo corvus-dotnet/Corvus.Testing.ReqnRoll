@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A readme for each NuGet package, shown on nuget.org.
+
+### Changed
+
+- Every package now has a real description and search tags, the package icon, the project and repository links, and release notes that link to this changelog. The MSTest and NUnit metapackages previously had none of these, and the main package's description was the SDK default text.
+
 ## [5.0.0] - 2026-11-15
 
 ### Changed

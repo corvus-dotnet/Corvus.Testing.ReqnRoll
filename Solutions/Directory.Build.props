@@ -14,4 +14,35 @@
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
   </ItemGroup>
 
+  <!--
+    NuGet package metadata shared by every package. Only Corvus.Testing.Reqnroll references
+    Endjin.RecommendedPractices, so the metapackages would otherwise get none of this.
+  -->
+  <PropertyGroup>
+    <Authors>Endjin Limited</Authors>
+    <Company>Endjin Limited</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <CorvusPackageReleaseNotes>https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/blob/main/CHANGELOG.md</CorvusPackageReleaseNotes>
+    <PackageReleaseNotes>$(CorvusPackageReleaseNotes)</PackageReleaseNotes>
+
+    <!-- Each package uses its own project folder's README.md as its NuGet readme. -->
+    <PackageReadmeFile Condition="Exists('$(MSBuildProjectDirectory)/README.md')">README.md</PackageReadmeFile>
+
+    <!-- Add the icon here for every package, instead of only where Endjin.RecommendedPractices is used. -->
+    <EndjinDisableDefaultPackageIconInclusion>true</EndjinDisableDefaultPackageIconInclusion>
+    <PackageIcon>PackageIcon.png</PackageIcon>
+
+    <!-- Check the packages for common problems when they're packed. -->
+    <EnablePackageValidation>true</EnablePackageValidation>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)PackageIcon.png" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="$(MSBuildProjectDirectory)/README.md" Pack="true" PackagePath="\" Condition="Exists('$(MSBuildProjectDirectory)/README.md')" />
+  </ItemGroup>
+
 </Project>

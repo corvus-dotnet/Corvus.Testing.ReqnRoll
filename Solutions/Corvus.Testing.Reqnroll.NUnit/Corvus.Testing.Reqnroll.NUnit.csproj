@@ -19,14 +19,11 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageDescription>A metapackage that encapsulates the required dependencies when using Corvus.Testing.Reqnroll and Endjin's standard practises.  Also simplifies the dependency management process when using tools like Dependabot.</PackageDescription>
-    <PackageTags>metapackage</PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <Description>A metapackage that references everything needed to write Reqnroll specs with NUnit and Corvus.Testing.Reqnroll: Reqnroll.NUnit, NUnit3TestAdapter, Microsoft.NET.Test.Sdk, coverlet.msbuild and Microsoft.Extensions.DependencyInjection. Updating this one package keeps them all in step.</Description>
+    <PackageTags>reqnroll;bdd;gherkin;testing;nunit;metapackage;corvus</PackageTags>
     <RootNamespace>MetaPackage.Reqnroll.NUnit</RootNamespace>
     <IsPackable>true</IsPackable>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <IncludeContentInPack>false</IncludeContentInPack>
     <!-- Suppress the NuGet warning we're always going to get - ref: https://github.com/NuGet/Home/issues/8583 -->
     <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>

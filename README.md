@@ -4,9 +4,12 @@
 [![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Testing.ReqnRoll/main/LICENSE)
 [![IMM](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)
 
-This provides a library of useful testing extensions, primarily focussed on Reqnroll operations in v4.
+This provides a library of useful testing extensions for [Reqnroll](https://reqnroll.net/) 3.
 
-It is built for .NET 10.0
+It is built for .NET 10.0. It's available as three NuGet packages:
+
+- [Corvus.Testing.Reqnroll](https://www.nuget.org/packages/Corvus.Testing.Reqnroll): the bindings described below.
+- [Corvus.Testing.Reqnroll.NUnit](https://www.nuget.org/packages/Corvus.Testing.Reqnroll.NUnit) and [Corvus.Testing.Reqnroll.MSTest](https://www.nuget.org/packages/Corvus.Testing.Reqnroll.MSTest): metapackages that also bring in Reqnroll, the test framework's adapter and the test SDK.
 
 The Reqnroll specific libraries contain additional bindings; to use these, you will need to add a `reqnroll.json` file to any project wishing to use them. Add entries to the `stepAssemblies` array for each of the Corvus libraries you need to use:
 
@@ -71,7 +74,7 @@ To obtain services from the DI container, you can write code like this:
 
 ```csharp
 IServiceProvider serviceProvider = ContainerBindings.GetServiceProvider(this.scenarioContext);
-MyService svc = this.ServiceProvider.GetRequiredService<MyService>()
+MyService svc = serviceProvider.GetRequiredService<MyService>();
 ```
 
 The `ContainerBindings.GetServiceProvider` method is overloaded, accepting either a `ScenarioContext` or a `FeatureContext`. If you used the `@perScenarioContainer` tag you should pass the scenario context as the example above does, but if you're using `@perFeatureContainer` pass the feature context instead.
@@ -83,12 +86,12 @@ The `ContainerBindings.GetServiceProvider` method is overloaded, accepting eithe
 public static void ServiceProviderAvailableBeforeScenario(ScenarioContext scenarioContext)
 {
     IServiceProvider serviceProvider = ContainerBindings.GetServiceProvider(scenarioContext);
-    MyService svc = this.ServiceProvider.GetRequiredService<MyService>()
+    MyService svc = serviceProvider.GetRequiredService<MyService>();
     // etc.
 }
 ```
 
-(This presumes that we've got some test-specific work going on. If you wanted this binding to run any time you used a per-scenario container you'd put `@perFeatureContainer` instead of `@adminTestContainerInitialization`.)
+(This presumes that we've got some test-specific work going on. If you wanted this binding to run any time you used a per-scenario container you'd put `@perScenarioContainer` instead of `@adminTestContainerInitialization`.)
 
 Note that the `Order` constants that `Corvus.Testing.Reqnroll` provides space to allow you to control the order of multiple bindings of your own if necessary. The `BuildServiceProvider` is 9999 higher than `PopulateServiceCollection`, so if you need to perform multiple bindings in between the the service collection being created, and the final service provider being built from that collection, you can do so, and you can control their ordering. (E.g., you can have one binding with `Order = ContainerBeforeScenarioOrder.PopulateServiceCollection`, and then another with `ContainerBeforeScenarioOrder.PopulateServiceCollection + 1`.)
 
@@ -96,7 +99,22 @@ Exceptions during container disposal are handled using the Teardown Exception Ha
 
 ### Child Object Value Retriever (Corvus.Testing.Reqnroll)
 
-If a scenario or feature specifies the `@useChildObjects` tag, this registers a Value Retrieved with Reqnroll enabling named objects in the scenario context to be referred to with a `{name}` syntax. So if an earlier stage of a test puts something into the scenario context with the key `transactionId` you could write `{transactionId}` in a Reqnroll feature fle to retrieve that value from the context and pass it in as the argument to a step.
+If a scenario or feature specifies the `@useChildObjects` tag, this registers a value retriever with Reqnroll, so that objects in the scenario context can be referred to in tables with a `{name}` syntax. So if an earlier step puts an object into the scenario context with the key `transaction`, you can write `{transaction}` in a table cell. When the table is converted with one of Reqnroll's table helpers, such as `CreateInstance` or `CreateSet`, that property is set to the stored object:
+
+```gherkin
+@useChildObjects
+Scenario: Create a team
+    Given I have stored a person as 'alice'
+    When I create a team from this table
+        | Name | Leader  |
+        | Red  | {alice} |
+```
+
+```csharp
+Team team = table.CreateInstance<Team>(); // team.Leader is the object stored as "alice"
+```
+
+Values without braces are converted as normal.
 
 ### Teardown Exception Handling (Corvus.Testing.Reqnroll)
 
