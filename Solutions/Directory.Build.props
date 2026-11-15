@@ -1,0 +1,17 @@
+<Project>
+
+  <PropertyGroup>
+    <!--
+      Analyzer packages are referenced centrally from Directory.Packages.props. This stops
+      Endjin.RecommendedPractices from adding its own fixed-version analyzer references, which
+      conflict with Central Package Management.
+    -->
+    <EndjinDisableCodeAnalysis>true</EndjinDisableCodeAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- EndjinDisableCodeAnalysis also turns off this StyleCop wiring, so add it back here. -->
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+
+</Project>

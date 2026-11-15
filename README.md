@@ -1,20 +1,20 @@
-# Corvus.Testing.ReqnRoll
+# Corvus.Testing.Reqnroll
 
 ![Build Status](https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/actions/workflows/build.yml/badge.svg)
 [![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Testing.ReqnRoll/main/LICENSE)
 [![IMM](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/total?cache=false)
 
-This provides a library of useful testing extensions, primarily focussed on ReqnRoll operations in v4.
+This provides a library of useful testing extensions, primarily focussed on Reqnroll operations in v4.
 
-It is built for .NET 8.0
+It is built for .NET 10.0
 
-The ReqnRoll specific libraries contain additional bindings; to use these, you will need to add a `reqnroll.json` file to any project wishing to use them. Add entries to the `stepAssemblies` array for each of the Corvus libraries you need to use:
+The Reqnroll specific libraries contain additional bindings; to use these, you will need to add a `reqnroll.json` file to any project wishing to use them. Add entries to the `stepAssemblies` array for each of the Corvus libraries you need to use:
 
 ```json
 {
   "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
   "stepAssemblies": [
-    { "assembly": "Corvus.Testing.ReqnRoll" },
+    { "assembly": "Corvus.Testing.Reqnroll" },
     { "assembly": "Corvus.Testing.AzureFunctions.ReqnRoll" },
   ]
 }
@@ -24,9 +24,9 @@ The ReqnRoll specific libraries contain additional bindings; to use these, you w
 
 This library offers the following features.
 
-### Container Bindings (Corvus.Testing.ReqnRoll)
+### Container Bindings (Corvus.Testing.Reqnroll)
 
-`Corvus.Testing.ReqnRoll` can simplify the use of dependency injection. It can automatically create a dependency injection service collection (an instance of the `IServiceCollection` type defined by the `Microsoft.Extensions.DependencyInjection.Abstractions` component). It offers your tests an opportunity to populate this collection during the early phases of test execution. It then automatically builds an `IServiceProvider` from the service collection, and makes this accessible to your test. It disposes the provider at the end, ensuring any dependencies that need to clean up will have their `Dispose` methods called.
+`Corvus.Testing.Reqnroll` can simplify the use of dependency injection. It can automatically create a dependency injection service collection (an instance of the `IServiceCollection` type defined by the `Microsoft.Extensions.DependencyInjection.Abstractions` component). It offers your tests an opportunity to populate this collection during the early phases of test execution. It then automatically builds an `IServiceProvider` from the service collection, and makes this accessible to your test. It disposes the provider at the end, ensuring any dependencies that need to clean up will have their `Dispose` methods called.
 
 This feature offers two modes: you can either arrange for the service collection to be created, built, and torn down for individual scenarios, or you can create one that is created at the start of a feature, in which the service provider is shared by all scenarios within the feature, and the services are disposed only after all scenarios have run.
 
@@ -58,7 +58,7 @@ public static void PopulateFeatureServiceCollection(FeatureContext featureContex
 }
 ```
 
-The method name doesn't matter. It's the attribute that's significant. Note that by specifying the same `@perScenarioContainer` (or `@perFeatureContainer`) tag that `Corvus.Testing.ReqnRoll` is looking for, this binding will run for any tests that specify that tag. If you want to use this container feature in multiple tests but you want to use different service configuration in different tests, you can define your own tag, e.g. your feature file might start:
+The method name doesn't matter. It's the attribute that's significant. Note that by specifying the same `@perScenarioContainer` (or `@perFeatureContainer`) tag that `Corvus.Testing.Reqnroll` is looking for, this binding will run for any tests that specify that tag. If you want to use this container feature in multiple tests but you want to use different service configuration in different tests, you can define your own tag, e.g. your feature file might start:
 
 ```
 @perScenarioContainer
@@ -76,7 +76,7 @@ MyService svc = this.ServiceProvider.GetRequiredService<MyService>()
 
 The `ContainerBindings.GetServiceProvider` method is overloaded, accepting either a `ScenarioContext` or a `FeatureContext`. If you used the `@perScenarioContainer` tag you should pass the scenario context as the example above does, but if you're using `@perFeatureContainer` pass the feature context instead.
 
-`GetServiceProvider` will work from inside any step, whether it's `Given`, `When`, or `Then`. But if you need to write a custom `Before...` binding that has access to the service provider, you'll need to make sure it runs at the appropriate moment. Since `Corvus.Testing.ReqnRoll` relies on this binding mechanism to create and initialize the services, you need to make sure that your code runs at the right moment, which means using the `Order` property on these ReqnRoll binding attributes. The bindings shown above that populate the `IServiceCollection` set their `Order` property with constants supplied by `Corvus.Testing.ReqnRoll`. This ensures that these bindings run after `Corvus.Testing.ReqnRoll` has created the service collection but before it has built the provider. If you want to access services from DI you will need to run after the provider has been built, which you can do by specifying a different constant for the `Order`:
+`GetServiceProvider` will work from inside any step, whether it's `Given`, `When`, or `Then`. But if you need to write a custom `Before...` binding that has access to the service provider, you'll need to make sure it runs at the appropriate moment. Since `Corvus.Testing.Reqnroll` relies on this binding mechanism to create and initialize the services, you need to make sure that your code runs at the right moment, which means using the `Order` property on these Reqnroll binding attributes. The bindings shown above that populate the `IServiceCollection` set their `Order` property with constants supplied by `Corvus.Testing.Reqnroll`. This ensures that these bindings run after `Corvus.Testing.Reqnroll` has created the service collection but before it has built the provider. If you want to access services from DI you will need to run after the provider has been built, which you can do by specifying a different constant for the `Order`:
 
 ```csharp
 [BeforeScenario("@adminTestContainerInitialization", Order = ContainerBeforeScenarioOrder.ServiceProviderAvailable)]
@@ -90,19 +90,19 @@ public static void ServiceProviderAvailableBeforeScenario(ScenarioContext scenar
 
 (This presumes that we've got some test-specific work going on. If you wanted this binding to run any time you used a per-scenario container you'd put `@perFeatureContainer` instead of `@adminTestContainerInitialization`.)
 
-Note that the `Order` constants that `Corvus.Testing.ReqnRoll` provides space to allow you to control the order of multiple bindings of your own if necessary. The `BuildServiceProvider` is 9999 higher than `PopulateServiceCollection`, so if you need to perform multiple bindings in between the the service collection being created, and the final service provider being built from that collection, you can do so, and you can control their ordering. (E.g., you can have one binding with `Order = ContainerBeforeScenarioOrder.PopulateServiceCollection`, and then another with `ContainerBeforeScenarioOrder.PopulateServiceCollection + 1`.)
+Note that the `Order` constants that `Corvus.Testing.Reqnroll` provides space to allow you to control the order of multiple bindings of your own if necessary. The `BuildServiceProvider` is 9999 higher than `PopulateServiceCollection`, so if you need to perform multiple bindings in between the the service collection being created, and the final service provider being built from that collection, you can do so, and you can control their ordering. (E.g., you can have one binding with `Order = ContainerBeforeScenarioOrder.PopulateServiceCollection`, and then another with `ContainerBeforeScenarioOrder.PopulateServiceCollection + 1`.)
 
 Exceptions during container disposal are handled using the Teardown Exception Handling mechanism described below, meaning that if errors occur, they will not prevent other teardown from happening, but will still eventually be reported. (Although be aware that depending on how you run your tests, feature-level errors will not necessarily be reported as errors, due to limitations inherent in how .NET test runners integrate with build and development tools.)
 
-### Child Object Value Retriever (Corvus.Testing.ReqnRoll)
+### Child Object Value Retriever (Corvus.Testing.Reqnroll)
 
-If a scenario or feature specifies the `@useChildObjects` tag, this registers a Value Retrieved with ReqnRoll enabling named objects in the scenario context to be referred to with a `{name}` syntax. So if an earlier stage of a test puts something into the scenario context with the key `transactionId` you could write `{transactionId}` in a ReqnRoll feature fle to retrieve that value from the context and pass it in as the argument to a step.
+If a scenario or feature specifies the `@useChildObjects` tag, this registers a Value Retrieved with Reqnroll enabling named objects in the scenario context to be referred to with a `{name}` syntax. So if an earlier stage of a test puts something into the scenario context with the key `transactionId` you could write `{transactionId}` in a Reqnroll feature fle to retrieve that value from the context and pass it in as the argument to a step.
 
-### Teardown Exception Handling (Corvus.Testing.ReqnRoll)
+### Teardown Exception Handling (Corvus.Testing.Reqnroll)
 
-If you do any non-trivial work during `After...` bindings (e.g., tearing down a function) it is often important to ensure that all the bindings run. This is problematic in cases where failures might occur at this stage, because the only way a binding can report failure is by throwing an exception, and if it does so, it will normally prevent all other bindings from running, because it causes the test to come to an abrupt halt. (ReqnRoll doesn't have a concept of "fail, but continue to clean up".) This is especially problematic for integration tests that create external resources. (E.g., if your test creates resources in Azure, it can be costly if you fail to clean these up when you're done.)
+If you do any non-trivial work during `After...` bindings (e.g., tearing down a function) it is often important to ensure that all the bindings run. This is problematic in cases where failures might occur at this stage, because the only way a binding can report failure is by throwing an exception, and if it does so, it will normally prevent all other bindings from running, because it causes the test to come to an abrupt halt. (Reqnroll doesn't have a concept of "fail, but continue to clean up".) This is especially problematic for integration tests that create external resources. (E.g., if your test creates resources in Azure, it can be costly if you fail to clean these up when you're done.)
 
-`Corvus.Testing.ReqnRoll` provides a mechanism by which you can run code in some sort of `After...` binding, and be free to throw exceptions without that halting all further cleanup, while still eventually seeing the error. You do this through a helper like this:
+`Corvus.Testing.Reqnroll` provides a mechanism by which you can run code in some sort of `After...` binding, and be free to throw exceptions without that halting all further cleanup, while still eventually seeing the error. You do this through a helper like this:
 
 ```csharp
 [AfterScenario]
@@ -118,7 +118,7 @@ This is the code in `Corvus.Testing.AzureFunctions.ReqnRoll` that tears down any
 
 `RunAndStoreExceptions` lets you throw exceptions without risk. It catches any exceptions that emerge from your code, stores them, enables all other teardown to proceed, and then at the very last moment, it checks to see if any exceptions were detected this way, and if they were, it reports them all in one go by throwing an `AggregateException` containing every failure.
 
-To work, `Corvus.Testing.ReqnRoll` defines unconditional `AfterScenario` and `AfterFeature` bindings each with an `Order` of `int.MaxValue`. This means they will only truly be the last thing to run for the scenario or feature if nothing else tries the same thing. If you want to use this feature, you will need to ensure that you're not using anything else that also depends on being able to be the very last thing that happens.
+To work, `Corvus.Testing.Reqnroll` defines unconditional `AfterScenario` and `AfterFeature` bindings each with an `Order` of `int.MaxValue`. This means they will only truly be the last thing to run for the scenario or feature if nothing else tries the same thing. If you want to use this feature, you will need to ensure that you're not using anything else that also depends on being able to be the very last thing that happens.
 
 ## Licenses
 
@@ -130,15 +130,35 @@ For any licensing questions, please email [&#108;&#105;&#99;&#101;&#110;&#115;&#
 
 ## Project Sponsor
 
-This project is sponsored by [endjin](https://endjin.com), a UK based Microsoft Partner.
+This project is sponsored by [endjin](https://endjin.com), a UK based Technology Consultancy which specializes in Data & Analytics, AI & Cloud Native App Dev.
+
+> We help small teams achieve big things.
+
+We produce three free weekly newsletters: 
+
+ - [Azure Weekly](https://azureweekly.info) for all things about the Microsoft Azure Platform
+ - [Power BI Weekly](https://powerbiweekly.info) for all things Power BI
+ - [Fabric Weekly](https://fabricweekly.info) for all things Microsoft Fabric
+
+Keep up with everything that's going on at endjin via our [blog](https://endjin.com/blog), follow us on [Bluesky](https://bsky.app/profile/endjin.com), [YouTube](https://www.youtube.com/c/endjin) or [LinkedIn](https://www.linkedin.com/company/endjin).
+
+We have become the maintainers of a number of popular .NET Open Source Projects:
+
+- [Reactive Extensions for .NET](https://github.com/dotnet/reactive)
+- [Reaqtor](https://github.com/reaqtive)
+- [Argotic Syndication Framework](https://github.com/argotic-syndication-framework/)
+
+And we have over 50 Open Source projects of our own, spread across the following GitHub Orgs:
+
+- [endjin](https://github.com/endjin/)
+- [Corvus](https://github.com/corvus-dotnet)
+- [Menes](https://github.com/menes-dotnet)
+- [Marain](https://github.com/marain-dotnet)
+- [AIS.NET](https://github.com/ais-dotnet)
+
+And the DevOps tooling we have created for managing all these projects is available on the [PowerShell Gallery](https://www.powershellgallery.com/profiles/endjin).
 
 For more information about our products and services, or for commercial support of this project, please [contact us](https://endjin.com/contact-us). 
-
-We produce two free weekly newsletters; [Azure Weekly](https://azureweekly.info) for all things about the Microsoft Azure Platform, and [Power BI Weekly](https://powerbiweekly.info).
-
-Keep up with everything that's going on at endjin via our [blog](https://endjin.com/blog), follow us on [X](https://x.com/endjin), or [LinkedIn](https://www.linkedin.com/company/endjin/).
-
-Our other Open Source projects can be found on [GitHub](https://endjin.com/open-source)
 
 ## Code of conduct
 
@@ -177,5 +197,7 @@ The IM is endjin's IP quality framework.
 [![Production Use](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/87ee2c3e-b17a-4939-b969-2c9c034d05d7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/87ee2c3e-b17a-4939-b969-2c9c034d05d7?cache=false)
 
 [![Packaging](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)
+
+[![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)
 
 [![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)

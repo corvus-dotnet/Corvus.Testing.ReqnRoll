@@ -401,3 +401,5 @@ FodyWeavers.xsd
 _codeCoverage/
 _packages/
 .zf/extensions/
+# Reqnroll generated code-behind
+*.feature.cs

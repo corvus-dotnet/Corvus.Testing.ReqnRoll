@@ -13,3 +13,14 @@ updates:
       patterns:
       - Microsoft.Extensions.*
 
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: weekly
+  ignore:
+  # Held at v1.9 until our other processes move to actions/create-github-app-token
+  - dependency-name: tibdex/github-app-token
+  groups:
+    github-actions:
+      patterns:
+      - "*"

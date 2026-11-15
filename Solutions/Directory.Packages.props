@@ -1,0 +1,38 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <ItemGroup Label="Build tooling">
+    <PackageVersion Include="Endjin.RecommendedPractices.GitHub" Version="2.1.18" />
+  </ItemGroup>
+
+  <ItemGroup Label="Code analysis">
+    <!--
+      Endjin.RecommendedPractices adds these from its build targets, but NuGet does not import
+      package targets during restore, so they were never restored. Referencing them here applies
+      them to every project, with PrivateAssets="all" so they do not flow to package consumers.
+    -->
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="5.0.1" />
+    <GlobalPackageReference Include="StyleCop.Analyzers" Version="1.3.180" />
+  </ItemGroup>
+
+  <ItemGroup Label="Runtime">
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.15" />
+    <PackageVersion Include="Reqnroll" Version="3.3.4" />
+    <PackageVersion Include="Reqnroll.MSTest" Version="3.3.4" />
+    <PackageVersion Include="Reqnroll.NUnit" Version="3.3.4" />
+  </ItemGroup>
+
+  <ItemGroup Label="Test frameworks">
+    <PackageVersion Include="coverlet.msbuild" Version="10.1.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
+    <PackageVersion Include="MSTest" Version="4.5.3" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="6.3.1" />
+  </ItemGroup>
+
+</Project>
