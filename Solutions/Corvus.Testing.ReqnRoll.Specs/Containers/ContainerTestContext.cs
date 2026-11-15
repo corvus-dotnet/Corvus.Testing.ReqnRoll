@@ -77,7 +77,7 @@ namespace Corvus.Testing.ReqnRoll.Specs.Containers
             Assert.That(root!.Comparer, Is.SameAs(this.ComparerOriginallySuppliedToContainer), "Comparer");
         }
 
-        private protected abstract void ConfigureServices(Action<IServiceCollection> services);
+        private protected abstract void ConfigureServices(Action<IServiceCollection> configureServices);
 
         private class FeatureContainerTestContext : ContainerTestContext
         {

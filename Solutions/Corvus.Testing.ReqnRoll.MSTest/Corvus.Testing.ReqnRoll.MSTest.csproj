@@ -13,6 +13,10 @@
     <!-- This project takes depedency on MSTest that adds the TestContainer capability importing NUnit.props, but this is not a test project -->
     <ProjectCapability Remove="TestContainer" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Metapackage with no real code: opt out of the analyzers referenced centrally in Directory.Packages.props. -->
+    <GlobalPackageReference Remove="@(GlobalPackageReference)" />
+  </ItemGroup>
 
   <PropertyGroup>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -28,21 +32,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="8.0.1">
+    <PackageReference Include="coverlet.msbuild">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk">
       <!-- ensure the 'build' assets are not private -->
       <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="MSTest" Version="4.1.0">
+    <PackageReference Include="MSTest">
         <!-- ensure the 'build' assets are not private -->
         <PrivateAssets>contentfiles; analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Reqnroll.MSTest" Version="3.3.4" />
+    <PackageReference Include="Reqnroll.MSTest" />
   </ItemGroup>
 
   <ItemGroup>
