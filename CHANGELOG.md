@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-11-15
+
 ### Changed
 
 - **Breaking:** All packages now target .NET 10.0 instead of .NET 8.0.
@@ -59,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release of `Corvus.Testing.ReqnRoll` and the `Corvus.Testing.ReqnRoll.NUnit` metapackage, built on Reqnroll and targeting .NET 8.0.
 
-[Unreleased]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.5...HEAD
+[Unreleased]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.5...5.0.0
 [4.0.5]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.4...4.0.5
 [4.0.4]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.3...4.0.4
 [4.0.3]: https://github.com/corvus-dotnet/Corvus.Testing.ReqnRoll/compare/4.0.2...4.0.3
