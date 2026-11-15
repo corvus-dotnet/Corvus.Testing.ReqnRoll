@@ -44,8 +44,7 @@ To populate the service collection you must write a binding that runs at the app
 public static void PopulateScenarioServiceCollection(ScenarioContext scenarioContext)
 {
     ContainerBindings.ConfigureServices(scenarioContext, services =>
-        services.AddLogging()
-            .AddSingleton<IStore, FakeStore>());
+        services.AddSingleton<IStore, FakeStore>());
 }
 ```
 
@@ -56,8 +55,7 @@ and per-feature collections work in almost exactly the same way, largely just ch
 public static void PopulateFeatureServiceCollection(FeatureContext featureContext)
 {
     ContainerBindings.ConfigureServices(featureContext, services =>
-        services.AddLogging()
-            .AddSingleton<IStore, FakeStore>());
+        services.AddSingleton<IStore, FakeStore>());
 }
 ```
 

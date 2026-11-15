@@ -43,8 +43,7 @@ Tag a scenario (or a whole feature) with `@perScenarioContainer`, or a feature w
 public static void PopulateServices(ScenarioContext scenarioContext)
 {
     ContainerBindings.ConfigureServices(scenarioContext, services =>
-        services.AddLogging()
-                .AddSingleton<IStore, FakeStore>());
+        services.AddSingleton<IStore, FakeStore>());
 }
 ```
 
