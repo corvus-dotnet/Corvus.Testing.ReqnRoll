@@ -1,0 +1,26 @@
+<Project>
+
+  <!--
+    Endjin.RecommendedPractices.GitHub sets PackageReleaseNotes to the repository's GitHub Releases
+    page in a target that runs before Compile, which overrides any value set during evaluation. This
+    repository records its changes in CHANGELOG.md instead, so set the release notes back afterwards.
+  -->
+  <Target Name="CorvusSetPackageReleaseNotes" AfterTargets="_EndjinSetGitHubProperties" BeforeTargets="Compile">
+    <PropertyGroup>
+      <PackageReleaseNotes>$(CorvusPackageReleaseNotes)</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
+
+  <!--
+    Microsoft.NET.Test.Sdk adds testhost.dll and testhost.exe to a project as content. The
+    metapackages (which have IncludeBuildOutput set to false) reference the test SDK, but must not
+    ship those files. Remove them just before the package's files are collected. Turning off
+    IncludeContentInPack instead would also leave out the package icon and readme.
+  -->
+  <Target Name="CorvusExcludeTestHostFromPackage" BeforeTargets="_GetPackageFiles" Condition="'$(IncludeBuildOutput)' == 'false'">
+    <ItemGroup>
+      <Content Remove="@(Content)" Condition="'%(Filename)' == 'testhost'" />
+    </ItemGroup>
+  </Target>
+
+</Project>

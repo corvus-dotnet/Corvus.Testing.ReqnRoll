@@ -18,10 +18,8 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageDescription></PackageDescription>
-    <PackageTags></PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <Description>Reqnroll bindings for dependency injection containers scoped to a scenario or feature, for referring to scenario context objects from tables, and for running all teardown even when some of it fails.</Description>
+    <PackageTags>reqnroll;bdd;gherkin;testing;dependency-injection;corvus</PackageTags>
     <RootNamespace />
   </PropertyGroup>
 
