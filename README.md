@@ -6,7 +6,7 @@
 
 This provides a library of useful testing extensions, primarily focussed on ReqnRoll operations in v4.
 
-It is built for .NET 8.0
+It is built for .NET 10.0
 
 The ReqnRoll specific libraries contain additional bindings; to use these, you will need to add a `reqnroll.json` file to any project wishing to use them. Add entries to the `stepAssemblies` array for each of the Corvus libraries you need to use:
 
@@ -130,15 +130,35 @@ For any licensing questions, please email [&#108;&#105;&#99;&#101;&#110;&#115;&#
 
 ## Project Sponsor
 
-This project is sponsored by [endjin](https://endjin.com), a UK based Microsoft Partner.
+This project is sponsored by [endjin](https://endjin.com), a UK based Technology Consultancy which specializes in Data & Analytics, AI & Cloud Native App Dev.
+
+> We help small teams achieve big things.
+
+We produce three free weekly newsletters: 
+
+ - [Azure Weekly](https://azureweekly.info) for all things about the Microsoft Azure Platform
+ - [Power BI Weekly](https://powerbiweekly.info) for all things Power BI
+ - [Fabric Weekly](https://fabricweekly.info) for all things Microsoft Fabric
+
+Keep up with everything that's going on at endjin via our [blog](https://endjin.com/blog), follow us on [Bluesky](https://bsky.app/profile/endjin.com), [YouTube](https://www.youtube.com/c/endjin) or [LinkedIn](https://www.linkedin.com/company/endjin).
+
+We have become the maintainers of a number of popular .NET Open Source Projects:
+
+- [Reactive Extensions for .NET](https://github.com/dotnet/reactive)
+- [Reaqtor](https://github.com/reaqtive)
+- [Argotic Syndication Framework](https://github.com/argotic-syndication-framework/)
+
+And we have over 50 Open Source projects of our own, spread across the following GitHub Orgs:
+
+- [endjin](https://github.com/endjin/)
+- [Corvus](https://github.com/corvus-dotnet)
+- [Menes](https://github.com/menes-dotnet)
+- [Marain](https://github.com/marain-dotnet)
+- [AIS.NET](https://github.com/ais-dotnet)
+
+And the DevOps tooling we have created for managing all these projects is available on the [PowerShell Gallery](https://www.powershellgallery.com/profiles/endjin).
 
 For more information about our products and services, or for commercial support of this project, please [contact us](https://endjin.com/contact-us). 
-
-We produce two free weekly newsletters; [Azure Weekly](https://azureweekly.info) for all things about the Microsoft Azure Platform, and [Power BI Weekly](https://powerbiweekly.info).
-
-Keep up with everything that's going on at endjin via our [blog](https://endjin.com/blog), follow us on [X](https://x.com/endjin), or [LinkedIn](https://www.linkedin.com/company/endjin/).
-
-Our other Open Source projects can be found on [GitHub](https://endjin.com/open-source)
 
 ## Code of conduct
 
@@ -177,5 +197,7 @@ The IM is endjin's IP quality framework.
 [![Production Use](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/87ee2c3e-b17a-4939-b969-2c9c034d05d7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/87ee2c3e-b17a-4939-b969-2c9c034d05d7?cache=false)
 
 [![Packaging](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)
+
+[![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)
 
 [![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)
