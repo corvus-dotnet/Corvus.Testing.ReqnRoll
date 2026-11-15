@@ -217,5 +217,3 @@ The IM is endjin's IP quality framework.
 [![Packaging](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/547fd9f5-9caf-449f-82d9-4fba9e7ce13a?cache=false)
 
 [![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)
-
-[![OpenChain](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)](https://imm.endjin.com/api/imm/github/corvus-dotnet/Corvus.Testing.ReqnRoll/rule/66efac1a-662c-40cf-b4ec-8b34c29e9fd7?cache=false)
